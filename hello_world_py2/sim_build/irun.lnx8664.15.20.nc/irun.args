@@ -1,0 +1,24 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-uvm
+-sv
+-v93
+-loadvpi
+libvpi
++access+rwc
+-nclibdirname
+sim_build
+-plinowarn
+test.sv
+-ncfatal
+CUNOTB
+-nowarn
+CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+-licqueue
+-aps_args
+"+lqt 120"
+-incdir
+/mirror/8500/libraries/ams/include/1V2
+-relax

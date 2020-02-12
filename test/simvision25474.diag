@@ -1,0 +1,86 @@
+*** Message Type: info ***
+When: Wed Oct 12 10:30:39 MEST 2016
+SimVision started.
+Version: TOOL:  simvision(64)   14.20-s020
+User: dzhao
+Host: dbsrvcomp-07.diasemi.com
+Platform: Linux/x86_64/2.6.18-371.el5
+Started: Wed Oct 12 10:30:39 MEST 2016
+Command: /cad/eda/cadence/INCISIV/14.20.020/linux_i/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:dbsrvcomp-07.diasemi.com:42702 -64BIT -nocopyright
+Work Directory: /workspaces/dzhao/Projects/playground/pyvpi_example/test
+ 
+*** Message Type: info ***
+When: Wed Oct 12 10:30:40 MEST 2016
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Wed Oct 12 10:30:41 MEST 2016
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Wed Oct 12 10:30:41 MEST 2016
+Exit Simulator: abnormal
+      Design: Unknown
+   Languages: Unknown
+   Simulator: Unknown
+     Version: Unknown
+        User: Unknown
+        Host: Unknown
+Time Started: Unknown
+  Process ID: Unknown
+   Directory: Unknown
+     Command: Unknown
+
+ 
+*** Message Type: error ***
+When: Wed Oct 12 10:30:41 MEST 2016
+Simulator Crashed:
+      Design: Unknown
+   Languages: Unknown
+   Simulator: Unknown
+     Version: Unknown
+        User: Unknown
+        Host: Unknown
+Time Started: Unknown
+  Process ID: Unknown
+   Directory: Unknown
+     Command: Unknown
+      Design: Unknown
+   Languages: Unknown
+   Simulator: Unknown
+     Version: Unknown
+        User: Unknown
+        Host: Unknown
+Time Started: Unknown
+  Process ID: Unknown
+   Directory: Unknown
+     Command: Unknown
+
+Outstanding STRAP Requests:
+        strap::get g . -ck
+        strap::get g . -sa
+        strap::get g . -xu
+ 
+*** Message Type: info ***
+When: Wed Oct 12 10:30:41 MEST 2016
+Connect to Simulator
+      Design: Unknown
+   Languages: Unknown
+   Simulator: Unknown
+     Version: Unknown
+        User: Unknown
+        Host: Unknown
+Time Started: Unknown
+  Process ID: Unknown
+   Directory: Unknown
+     Command: Unknown
+
+ 
+*** Message Type: info ***
+When: Wed Oct 12 10:30:42 MEST 2016
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Wed Oct 12 10:30:44 MEST 2016
+SimVision Exit.
+ 

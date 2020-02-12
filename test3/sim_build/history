@@ -1,0 +1,5 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(23Aug2017:11:50:13):( irun -L/workspaces/dzhao/anaconda3/lib -debug -64 -sv -v93 -loadvpi pyvpi.so libvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )

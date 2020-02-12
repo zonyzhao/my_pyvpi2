@@ -1,0 +1,3 @@
+SOFTINCLUDE /cad/eda/cadence/INCISIV/14.20.020/linux_i/tools/inca/files/cds.lib
+include ../../../../../../../../mirror/8500/libraries/ams/cadence/cds.lib
+define worklib ../worklib

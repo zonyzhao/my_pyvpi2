@@ -1,0 +1,36 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-XLMODE
+./sim_build/irun.lnx8664.15.20.nc
+-RUNMODE
+-UVMNOSINGLESTEP
+-define
+UVM_PLI
+-sv
+-NCLIBDIRNAME
+sim_build
+test.sv
+-ncfatal
+CUNOTB
+-NOWARN
+CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+-INCDIR
+/mirror/8500/libraries/ams/include/1V2
+-CDSLIB
+./sim_build/irun.lnx8664.15.20.nc/cdsrun.lib
+-HDLVAR
+./sim_build/irun.lnx8664.15.20.nc/hdlrun.var
+-I_INCDIR
+/cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/sv/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-I_INCDIR
+/cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/additions/sv
+-MESSAGES
+-UPDATE
+-XLLIBSTORE
+./sim_build/irun.lnx8664.15.20.nc/xllibs
+-ALLOWUNBOUND
+-ENABLEOIGW

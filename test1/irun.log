@@ -1,0 +1,75 @@
+irun(64): 15.20-s018: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s018: Started on Mar 04, 2017 at 23:21:37 MET
+irun
+	-64
+	-sv
+	-v93
+	-loadvpi libvpi
+	+access+rwc
+	-nclibdirname sim_build
+	-plinowarn
+	test.sv
+	-ncfatal CUNOTB
+	-nowarn CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+	-licqueue
+	-aps_args "+lqt 120"
+	-incdir /mirror/8500/libraries/ams/include/1V2
+	-relax
+
+   The following environmental variables have been detected. 
+   These options will be used directly by the executables and ignored by irun.
+	NCVLOGOPTS:  -incdir "/mirror/8500/libraries/ams/include/1V2"
+
+file: test.sv
+	module worklib.top:sv
+		errors: 0, warnings: 0
+ncvlog: *W,SPDUSD: Include directory /mirror/8500/libraries/ams/include/1V2 given but not used.
+ncvlog: *W,SPDUSD: Include directory /mirror/8500/libraries/ams/include/1V2 given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 2
+DEBUG : python begin env initial.
+DEBUG : *************
+DEBUG : Insert parameteres
+DEBUG : python end env initial.
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		top
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.top:sv <0x3fbf9f40>
+			streams:   4, words:  5721
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		         Instances  Unique
+		Modules:         1       1
+		Registers:       3       3
+		Initial blocks:  3       3
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+DEBUG : python begin env initial.
+DEBUG : *************
+DEBUG : Insert parameteres
+DEBUG : python end env initial.
+ncsim> source /cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/inca/files/ncsimrc
+ncsim> run
+VERBOSE : pyvpi_value_Type is <0x2b4f56c31340>.
+VERBOSE : pyvpi_cbdata_Type is <0x2b4f56c316c0>.
+VERBOSE : pyvpi_time_Type is <0x2b4f56c319a0>.
+VERBOSE : pyvpi_strengthval_Type is <0x2b4f56c31c00>.
+VERBOSE : pyvpi_vector_Type is <0x2b4f56c31e20>.
+VERBOSE : pyvpi_delays_Type is <0x2b4f56c32360>.
+VERBOSE : pyvpi_systfdata_Type is <0x2b4f56c32620>.
+VERBOSE : pyvpi_handle_Type is <0x2b4f56c32040>.
+sv                    0, a:0 + b:0 = c:x
+sv                   10, a:1 + b:2 = c:x
+sv                   20, a:2 + b:3 = c:x
+DEBUG : python begin env finalize.
+DEBUG : python end env finalize.
+Simulation complete via $finish(1) at time 100 NS + 0
+./test.sv:25     $finish;
+ncsim> exit
+TOOL:	irun(64)	15.20-s018: Exiting on Mar 04, 2017 at 23:21:38 MET  (total: 00:00:01)

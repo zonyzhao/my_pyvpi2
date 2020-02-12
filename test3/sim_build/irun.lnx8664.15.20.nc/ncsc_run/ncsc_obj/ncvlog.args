@@ -1,0 +1,5 @@
+-nocopyright
+-nowarn CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+-cdslib /workspaces/dzhao/Projects/playground/pyvpi_example/test3/./sim_build/irun.lnx8664.15.20.nc/cdsrun.lib
+-hdlvar /workspaces/dzhao/Projects/playground/pyvpi_example/test3/./sim_build/irun.lnx8664.15.20.nc/hdlrun.var
+-work worklib

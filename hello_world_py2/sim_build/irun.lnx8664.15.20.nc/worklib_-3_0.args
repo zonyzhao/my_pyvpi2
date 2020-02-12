@@ -1,0 +1,28 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-RUNMODE
+-sv
+-ncfatal
+CUNOTB
+-NOWARN
+CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+-I_INCDIR
+/cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/sv/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-I_INCDIR
+/cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/additions/sv
+-UPDATE
+-CDSLIB
+./sim_build/irun.lnx8664.15.20.nc/cdsrun.lib
+-HDLVAR
+./sim_build/irun.lnx8664.15.20.nc/hdlrun.var
+-work
+worklib
+-UVMNOSINGLESTEP
+-define
+UVM_PLI
+/cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/sv/src/uvm_pkg.sv
+/cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/additions/sv/cdns_uvm_pkg.sv

@@ -1,0 +1,30 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
++access+rwc
+-V93
+-LOADVPI
+libvpi
+-ACCESS
++rwc
+-PLINOWARN
+-ncfatal
+CUNOTB
+-NOWARN
+CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+-LICQUEUE
+-APS_ARGS
+"+lqt 120"
+-RELAX
+-MESSAGES
+-XLMODE
+./sim_build/irun.lnx8664.15.20.nc
+-RUNMODE
+-CDSLIB
+./sim_build/irun.lnx8664.15.20.nc/cds.lib
+-HDLVAR
+./sim_build/irun.lnx8664.15.20.nc/hdl.var
+-WORK
+worklib
+-HASXLMODE

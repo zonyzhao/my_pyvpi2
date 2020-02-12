@@ -1,0 +1,5 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(04Mar2017:23:21:37):( irun -64 -sv -v93 -loadvpi libvpi +access+rwc -nclibdirname sim_build -plinowarn test.sv )

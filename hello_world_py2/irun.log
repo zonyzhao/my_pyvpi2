@@ -1,0 +1,125 @@
+irun(64): 15.20-s018: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s018: Started on Feb 17, 2017 at 14:35:25 MET
+irun
+	-64
+	-uvm
+	-sv
+	-v93
+	-loadvpi libvpi
+	+access+rwc
+	-nclibdirname sim_build
+	-plinowarn
+	test.sv
+	-ncfatal CUNOTB
+	-nowarn CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+	-licqueue
+	-aps_args "+lqt 120"
+	-incdir /mirror/8500/libraries/ams/include/1V2
+	-relax
+
+   The following environmental variables have been detected. 
+   These options will be used directly by the executables and ignored by irun.
+	NCVLOGOPTS:  -incdir "/mirror/8500/libraries/ams/include/1V2"
+
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d
+file: test.sv
+	module worklib.top:sv
+		errors: 0, warnings: 0
+ncvlog: *W,SPDUSD: Include directory /mirror/8500/libraries/ams/include/1V2 given but not used.
+ncvlog: *W,SPDUSD: Include directory /mirror/8500/libraries/ams/include/1V2 given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 2
+DEBUG : python begin env initial.
+DEBUG : python end env initial.
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		top
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.top:sv <0x75aa1068>
+			streams:   3, words:  7297
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		         Instances  Unique
+		Modules:         1       1
+		Registers:       3       3
+		Vectored wires:  1       -
+		Initial blocks:  1       1
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+DEBUG : python begin env initial.
+DEBUG : python end env initial.
+ncsim> source /cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/inca/files/ncsimrc
+ncsim> source /cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+ncsim> run
+sv                    0, a:x + b:x = c:x
+VERBOSE : pyvpi_value_Type is <0x2ba11ee84900>.
+VERBOSE : pyvpi_cbdata_Type is <0x2ba11ee84c80>.
+VERBOSE : pyvpi_time_Type is <0x2ba11ee84f60>.
+VERBOSE : pyvpi_strengthval_Type is <0x2ba11ee851c0>.
+VERBOSE : pyvpi_vector_Type is <0x2ba11ee853e0>.
+VERBOSE : pyvpi_delays_Type is <0x2ba11ee85920>.
+VERBOSE : pyvpi_systfdata_Type is <0x2ba11ee85be0>.
+VERBOSE : pyvpi_handle_Type is <0x2ba11ee85600>.
+DEBUG : handleByName 's 2nd arg is not pyvpi.Handle type, trade scope as NULL.
+VERBOSE : pyvpi.Handle is allocate,ptr is <0x2ba11e7de0b0>, type ptr is <0x2ba11ee85600>.
+VERBOSE : pyvpi.Handle._vpi_handle is allocate,ptr is <0x140000>.
+All regs are blew here :
+VERBOSE : pyvpi.Handle is allocate,ptr is <0x2ba11e7de0f0>, type ptr is <0x2ba11ee85600>.
+VERBOSE : pyvpi.Handle._vpi_handle is allocate,ptr is <0x1000e0>.
+VERBOSE : pyvpi.Handle is allocate,ptr is <0x2ba11e7de110>, type ptr is <0x2ba11ee85600>.
+VERBOSE : pyvpi.Handle._vpi_handle is allocate,ptr is <0xc0100>.
+VERBOSE : pyvpi.Handle is allocate,ptr is <0x2ba11e7de130>, type ptr is <0x2ba11ee85600>.
+VERBOSE : pyvpi.Handle._vpi_handle is allocate,ptr is <0xc0180>.
+VERBOSE : pyvpi.Handle is allocate,ptr is <0x2ba11e7de150>, type ptr is <0x2ba11ee85600>.
+VERBOSE : pyvpi.Handle._vpi_handle is allocate,ptr is <0xc0200>.
+VERBOSE : pyvpi.Handle->Handle is release,ptr is <0x1000e0>.
+VERBOSE : pyvpi.Handle is release,ptr is <0x2ba11e7de0f0>.
+a
+b
+c
+VERBOSE : pyvpi.Handle is release,ptr is <0x2ba11e7de130>.
+VERBOSE : pyvpi.Handle->_vpi_handle is release,ptr is <0xc0180>.
+VERBOSE : pyvpi.Handle is release,ptr is <0x2ba11e7de110>.
+VERBOSE : pyvpi.Handle->_vpi_handle is release,ptr is <0xc0100>.
+All nets are blew here :
+VERBOSE : pyvpi.Handle is allocate,ptr is <0x2ba11e7de110>, type ptr is <0x2ba11ee85600>.
+VERBOSE : pyvpi.Handle._vpi_handle is allocate,ptr is <0x100120>.
+VERBOSE : pyvpi.Handle is allocate,ptr is <0x2ba11e7de130>, type ptr is <0x2ba11ee85600>.
+VERBOSE : pyvpi.Handle._vpi_handle is allocate,ptr is <0xc0280>.
+VERBOSE : pyvpi.Handle->Handle is release,ptr is <0x100120>.
+VERBOSE : pyvpi.Handle is release,ptr is <0x2ba11e7de110>.
+top.wx
+VERBOSE : pyvpi.Time is allocate, ptr is <0x2ba11e90b5a8>, type ptr is <0x2ba11ee84f60>.
+VERBOSE : pyvpi.Time is Initial,type is <0x2>.
+10
+DEBUG : handleByName 's 2nd arg is not pyvpi.Handle type, trade scope as NULL.
+VERBOSE : pyvpi.Handle is allocate,ptr is <0x2ba11e7de330>, type ptr is <0x2ba11ee85600>.
+VERBOSE : pyvpi.Handle._vpi_handle is allocate,ptr is <0xc0100>.
+VERBOSE : pyvpi.Value is allocate, ptr is <0x2ba11eb3a180>, type ptr is <0x2ba11ee84900>.
+VERBOSE : pyvpi.Value is Initial, format is <0x6>.
+DEBUG : 3nd arg of putValue is not pyvpi.Time, trade it as NULLVERBOSE : pyvpi.Time is allocate, ptr is <0x2ba1275f0df0>, type ptr is <0x2ba11ee84f60>.
+VERBOSE : pyvpi.Time is Initial,type is <0x2>.
+VERBOSE : pyvpi.Handle is release,ptr is <0x2ba11e7de330>.
+VERBOSE : pyvpi.Handle->_vpi_handle is release,ptr is <0xc0100>.
+VERBOSE : pyvpi.Value is release, ptr is <0x2ba11eb3a180>.
+VERBOSE : pyvpi.Time is release,ptr is <0x2ba1275f0df0>.
+sv                   10, a:5 + b:x = c:x
+sv 2                   30, a:5 + b:1 = c:x
+DEBUG : python begin env finalize.
+VERBOSE : pyvpi.Handle is release,ptr is <0x2ba11e7de150>.
+VERBOSE : pyvpi.Handle->_vpi_handle is release,ptr is <0xc0200>.
+VERBOSE : pyvpi.Time is release,ptr is <0x2ba11e90b5a8>.
+VERBOSE : pyvpi.Handle is release,ptr is <0x2ba11e7de130>.
+VERBOSE : pyvpi.Handle->_vpi_handle is release,ptr is <0xc0280>.
+VERBOSE : pyvpi.Handle is release,ptr is <0x2ba11e7de0b0>.
+VERBOSE : pyvpi.Handle->_vpi_handle is release,ptr is <0x140000>.
+DEBUG : python end env finalize.
+Simulation complete via $finish(1) at time 40 NS + 0
+./test.sv:20         $finish;
+ncsim> exit
+TOOL:	irun(64)	15.20-s018: Exiting on Feb 17, 2017 at 14:35:28 MET  (total: 00:00:03)

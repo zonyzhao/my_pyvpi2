@@ -1,0 +1,7 @@
+$CDSROOT = /cad/eda/cadence/INCISIV/15.20.018/linux_i
+$TESTDIR = /workspaces/dzhao/Projects/playground/pyvpi_example/test3
+
+TOOL:	ncsc(64)	15.20-s018
+make[1]: Entering directory `/workspaces/dzhao/Projects/playground/pyvpi_example/test3'
+building library run.so
+make[1]: Leaving directory `/workspaces/dzhao/Projects/playground/pyvpi_example/test3'

@@ -1,0 +1,39 @@
+irun(64): 15.20-s036: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s036: Started on Dec 04, 2018 at 11:24:28 MET
+irun
+	-gui
+	-debug
+	-64
+	-sv
+	-v93
+	-loadvpi libvpi
+	+access+rwc
+	-nclibdirname sim_build
+	-plinowarn
+	test.sv
+	-ncfatal CUNOTB
+	-nowarn CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+	-licqueue
+	-aps_args "+lqt 120"
+	-incdir /mirror/8500/libraries/ams/include/1V2
+	-relax
+
+   The following environmental variables have been detected. 
+   These options will be used directly by the executables and ignored by irun.
+	NCVLOGOPTS:  -incdir "/mirror/8500/libraries/ams/include/1V2"
+
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+ncsim: *F,INTERR: INTERNAL EXCEPTION
+Observed simulation time : 0 FS + 0
+-----------------------------------------------------------------
+The tool has encountered an unexpected condition and must exit.
+Contact Cadence Design Systems customer support about this
+problem and provide enough information to help us reproduce it,
+including the logfile that contains this error message.
+  TOOL:	ncsim(64)	15.20-s036
+  HOSTNAME: dbsrvcomp-13
+  OPERATING SYSTEM: Linux 2.6.32-642.3.1.el6.x86_64 #1 SMP Sun Jun 26 18:16:44 EDT 2016 x86_64
+  MESSAGE: sv_seghandler - trapno -1 addr(0x10)
+-----------------------------------------------------------------
+csi-ncsim - CSI: Cadence Support Investigation, sending details to /workspaces/dzhao/Projects/playground/my_pyvpi/hello_world_py3/ncsim_22803.err
+csi-ncsim - CSI: investigation complete, send /workspaces/dzhao/Projects/playground/my_pyvpi/hello_world_py3/ncsim_22803.err to Cadence Support

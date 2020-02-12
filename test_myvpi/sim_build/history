@@ -1,0 +1,23 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(10Feb2020:09:59:03):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s2::(10Feb2020:10:02:56):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s3::(10Feb2020:10:55:05):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s4::(10Feb2020:10:55:49):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s5::(10Feb2020:10:56:06):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s6::(10Feb2020:11:30:55):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s7::(10Feb2020:11:31:42):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s8::(10Feb2020:11:32:12):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s9::(10Feb2020:11:33:11):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s10::(10Feb2020:11:33:54):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s11::(10Feb2020:12:46:25):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s12::(10Feb2020:13:28:59):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s13::(10Feb2020:13:36:33):( irun -L/workspaces/dzhao/anaconda3/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s14::(10Feb2020:13:37:32):( irun -L/opt/anaconda/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s15::(10Feb2020:14:06:45):( irun -L/opt/anaconda/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s16::(10Feb2020:14:07:27):( irun -L/opt/anaconda/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s17::(10Feb2020:14:09:58):( irun -L/opt/anaconda/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s18::(10Feb2020:14:53:45):( irun -L/opt/anaconda/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )
+s19::(10Feb2020:15:26:10):( irun -L/opt/anaconda/lib -lpython3.7m -debug -64 -sv -v93 -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn test.sv )

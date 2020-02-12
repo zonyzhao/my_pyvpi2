@@ -1,0 +1,1 @@
+s1(17Feb2017:14:35:25):  irun -64 -uvm -sv -v93 -loadvpi libvpi +access+rwc -nclibdirname sim_build -plinowarn test.sv 

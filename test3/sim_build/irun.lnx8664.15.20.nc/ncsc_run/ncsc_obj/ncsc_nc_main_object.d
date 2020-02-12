@@ -1,0 +1,1 @@
+main.o: /cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/inca/src/main.cc

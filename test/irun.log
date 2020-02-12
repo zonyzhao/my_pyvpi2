@@ -1,0 +1,79 @@
+irun(64): 14.20-s020: (c) Copyright 1995-2015 Cadence Design Systems, Inc.
+TOOL:	irun(64)	14.20-s020: Started on Oct 12, 2016 at 10:30:38 MEST
+irun
+	-gui
+	-64
+	-sv
+	-v93
+	-loadvpi libvpi
+	+access+rwc
+	-nclibdirname sim_build
+	-plinowarn
+	test.sv
+	-ncfatal CUNOTB
+	-nowarn CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+	-licqueue
+	-aps_args "+lqt 120"
+	-incdir /mirror/8500/libraries/ams/include/1V2
+	-relax
+
+   The following environmental variables have been detected. 
+   These options will be used directly by the executables and ignored by irun.
+	NCVLOGOPTS:  -incdir "/mirror/8500/libraries/ams/include/1V2"
+
+file: test.sv
+	interface worklib.pyAESECBenc:sv
+		errors: 0, warnings: 0
+	interface worklib.pyAESECBdec:sv
+		errors: 0, warnings: 0
+	interface worklib.pyadaptor:sv
+		errors: 0, warnings: 0
+	module worklib.top:sv
+		errors: 0, warnings: 0
+ncvlog: *W,SPDUSD: Include directory /mirror/8500/libraries/ams/include/1V2 given but not used.
+ncvlog: *W,SPDUSD: Include directory /mirror/8500/libraries/ams/include/1V2 given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 2
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		top
+        $pyvpi_main("tt.py");
+                  |
+ncelab: *W,MISSYST (./test.sv,35|18): Unrecognized system task or function: $pyvpi_main (did not match built-in or user-defined names) [2.7.4(IEEE Std 1364-2001)].
+If item was defined in a shared-object library, the problem could be:
+libvpi.so: cannot open shared object file: No such file or directory or file is not valid ELFCLASS64 library.
+libpli.so: cannot open shared object file: No such file or directory or file is not valid ELFCLASS64 library..
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.pyAESECBdec:sv <0x183e47c0>
+			streams:   1, words:   536
+		worklib.pyAESECBenc:sv <0x0e94130d>
+			streams:   1, words:   536
+		worklib.pyadaptor:sv <0x7e61cc7c>
+			streams:   1, words:   289
+		worklib.top:sv <0x7ae842cf>
+			streams:  15, words: 13194
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:              1       1
+		Interfaces:           3       3
+		Registers:           10      10
+		Vectored wires:      12       -
+		Always blocks:        3       3
+		Initial blocks:       5       5
+		Pseudo assignments:   8       8
+	Writing initial simulation snapshot: worklib.top:sv
+ncsim: *W,WSEM2009: This SystemVerilog simulation was not run with the '-sem2009' option which provides 1800-2009 SystemVerilog simulation semantics. In future, '-sem2009' functionality will become the default for SystemVerilog environments. Until then, run your SystemVerilog  simulations using the '-sem2009' option and report any functional or performance issues to Cadence. To disable this warning, use the '-nowarn WSEM2009' command-line option. There is no impact to non-SystemVerilog environments.
+        $pyvpi_main("tt.py");
+                  |
+ncsim: *E,MSSYSTF (./test.sv,35|18): User Defined system task or function ($pyvpi_main) registered during elaboration and used within the simulation has not been registered during simulation.
+            $pyvpi_main("aes_ecb_enc.py");
+                      |
+ncsim: *E,MSSYSTF (./test.sv,10|22): User Defined system task or function ($pyvpi_main) registered during elaboration and used within the simulation has not been registered during simulation.
+            $pyvpi_main("aes_ecb_dec.py");
+                      |
+ncsim: *E,MSSYSTF (./test.sv,23|22): User Defined system task or function ($pyvpi_main) registered during elaboration and used within the simulation has not been registered during simulation.
+TOOL:	irun(64)	14.20-s020: Exiting on Oct 12, 2016 at 10:30:41 MEST  (total: 00:00:03)

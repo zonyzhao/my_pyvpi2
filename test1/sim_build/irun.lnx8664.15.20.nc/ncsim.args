@@ -1,0 +1,30 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
++access+rwc
+-PLINOWARN
+-ncfatal
+CUNOTB
+-NOWARN
+CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+-LICQUEUE
+-APS_ARGS
+"+lqt 120"
+-MESSAGES
++EMGRLOG
+irun.log
+-XLSTIME
+1488666097
+-XLKEEP
+-XLMODE
+./sim_build/irun.lnx8664.15.20.nc
+-RUNMODE
+-CDSLIB
+./sim_build/irun.lnx8664.15.20.nc/cds.lib
+-HDLVAR
+./sim_build/irun.lnx8664.15.20.nc/hdl.var
+-XLNAME
+irun
+-XLVERSION
+"TOOL:	irun(64)	15.20-s018"

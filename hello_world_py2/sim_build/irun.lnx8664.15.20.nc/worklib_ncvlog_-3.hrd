@@ -1,0 +1,13 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-sv
+-INCDIR
+/mirror/8500/libraries/ams/include/1V2
+-I_INCDIR
+/cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/sv/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-I_INCDIR
+/cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/additions/sv

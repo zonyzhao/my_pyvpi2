@@ -1,0 +1,16 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-64bit
+-LOADVPI
+pyvpi.so
+-PLINOWARN
+-ncfatal
+CUNOTB
+-NOWARN
+CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+-LICQUEUE
+-APS_ARGS
+"+lqt 120"
+-MESSAGES

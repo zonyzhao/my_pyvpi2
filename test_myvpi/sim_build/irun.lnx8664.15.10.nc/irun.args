@@ -1,0 +1,16 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-L/opt/anaconda/lib
+-lpython3.7m
+-debug
+-sv
+-v93
+-loadvpi
+pyvpi.so
++access+rwc
+-nclibdirname
+sim_build
+-plinowarn
+test.sv

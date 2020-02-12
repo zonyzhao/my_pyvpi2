@@ -1,0 +1,16 @@
+# DO NOT EDIT -- automatically generated options file -- DO NOT EDIT!!!
+return {
+  plugin-enable-svdatabrowser-new {1}
+  user-toolbar-list {}
+  toolbar-Standard-Console {
+  usual
+  position -pos 1
+}
+  toolbar-Search-Console {
+  usual
+  position -pos 2
+}
+  plugin-enable-groupscope {0}
+  plugin-enable-interleaveandcompare {0}
+  plugin-enable-waveformfrequencyplot {0}
+}

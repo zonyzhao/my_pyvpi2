@@ -1,0 +1,41 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-INPUT
+"@source /cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl"
++access+rwc
+-uvmhome
+/cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d
+-sv_lib
+/cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so
+-PLINOWARN
+-ncfatal
+CUNOTB
+-NOWARN
+CUVWSP:CSINVI:CUNDDR:CUDEFB:CUSRCH
+-LICQUEUE
+-APS_ARGS
+"+lqt 120"
+-MESSAGES
+-RUN
+-SV_LIB
+/cad/eda/cadence/INCISIV/15.20.018/linux_i/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmdpi.so
++EMGRLOG
+irun.log
+-XLSTIME
+1487338525
+-XLKEEP
+-XLMODE
+./sim_build/irun.lnx8664.15.20.nc
+-RUNMODE
+-CDSLIB
+./sim_build/irun.lnx8664.15.20.nc/cds.lib
+-HDLVAR
+./sim_build/irun.lnx8664.15.20.nc/hdl.var
+-XLNAME
+irun
+-XLVERSION
+"TOOL:	irun(64)	15.20-s018"
+-XLNAME
+./sim_build/irun.lnx8664.15.20.nc/dbsrvcomp-13_6520
