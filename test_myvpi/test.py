@@ -117,7 +117,7 @@ async def task2():
     while(1):
         print('T2time1=%d'%Simtime.value)
         await b
-        print('T2time2=%d'%Simtime.value)
+        print('T3time2=%d'%Simtime.value)
 
 add_task(task())
 add_task(task2())
