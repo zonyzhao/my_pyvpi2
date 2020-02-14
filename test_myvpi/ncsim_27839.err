@@ -1,0 +1,42 @@
+csi-ncsim - CSI: Command line:
+ncsim
+    -f /home/zonyzhao/workspace/my_pyvpi/test_myvpi/sim_build/irun.lnx8664.15.10.nc/zonyzhao-GJ5CN64_27839/ncsim.args
+        +access+rwc
+        -PLINOWARN
+        -MESSAGES
+        +EMGRLOG irun.log
+        -XLSTIME 1581635375
+        -XLKEEP
+        -XLMODE ./sim_build/irun.lnx8664.15.10.nc
+        -RUNMODE
+        -CDSLIB ./sim_build/irun.lnx8664.15.10.nc/cds.lib
+        -HDLVAR ./sim_build/irun.lnx8664.15.10.nc/hdl.var
+        -XLNAME irun
+        -XLVERSION TOOL:	irun(64)	15.10-s010
+        -XLNAME ./sim_build/irun.lnx8664.15.10.nc/zonyzhao-GJ5CN64_27839
+    -CHECK_VERSION TOOL:	irun(64)	15.10-s010
+    -LOG_FD 4
+    -LOG_FD_NAME irun.log
+    -cmdnopsim
+    -runlock /home/zonyzhao/workspace/my_pyvpi/test_myvpi/sim_build/irun.lnx8664.15.10.nc/.nclib.lock
+    -runscratch /home/zonyzhao/workspace/my_pyvpi/test_myvpi/sim_build/irun.lnx8664.15.10.nc/zonyzhao-GJ5CN64_27839
+
+csi-ncsim - CSI: *F,INTERR: INTERNAL EXCEPTION
+Observed simulation time : 2196 US + 0
+-----------------------------------------------------------------
+The tool has encountered an unexpected condition and must exit.
+Contact Cadence Design Systems customer support about this
+problem and provide enough information to help us reproduce it,
+including the logfile that contains this error message.
+  TOOL:	ncsim(64)	15.10-s010
+  HOSTNAME: zonyzhao-GJ5CN64
+  OPERATING SYSTEM: Linux 5.0.0-38-generic #41-Ubuntu SMP Tue Dec 3 00:27:35 UTC 2019 x86_64
+  MESSAGE: sv_seghandler - trapno -1 addr(0x10)
+-----------------------------------------------------------------
+
+csi-ncsim - CSI: Cadence Support Investigation, recording details
+External Code in function: <unavailable> offset -65509
+External Code in function: <unavailable> offset -65536
+Simulator Snap Shot: gd (SSS_GD) in snapshot worklib.top:sv (SSS)
+External Code in function: <unavailable> offset -65535
+csi-ncsim - CSI: investigation complete took 0.030 secs, send this file to Cadence Support
