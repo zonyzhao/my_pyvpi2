@@ -3,6 +3,7 @@ import pyvpi_cons as cons
 # from scipy import signal
 #from IPython import embed
 import os
+import sys
 
 try:
     pyvpi.gd
@@ -48,7 +49,8 @@ class Reg(object):
 
     @property
     def fullname(self):
-        return pyvpi.getStr(cons.vpiFullName, self._handle)
+        rt = pyvpi.getStr(cons.vpiFullName, self._handle)
+        return rt
 
     @property
     def handle(self):
@@ -58,13 +60,16 @@ class Reg(object):
         self._format = format
         self._value = pyvpi.Value(format)
 
-    def get(self):
-        pyvpi.getValue(self._handle, self._value)
-        return self._value.value
+    # def get(self):
+    #     pyvpi.getValue(self._handle, self._value)
+    #     rt = self._value.value
+    #     return rt
 
     @property
     def value(self):
-        return self.get()
+        # print("get")
+        pyvpi.getValue(self._handle, self._value)
+        return self._f(self._value.value)
 
     @property
     def signed_value(self):
@@ -87,6 +92,7 @@ class Reg(object):
 
     def put(self, val):
         self._value.value = self._f(val)
+        # print("set")
         pyvpi.putValue(self._handle, self._value)
 
     def force(self, val):

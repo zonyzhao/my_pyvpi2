@@ -20,13 +20,6 @@ module top;
     initial begin
         a = 0;
         b = 0;
-        #10;
-        a = 1;
-        b = 2;
-        #10;
-        a = 2;
-        b = 3;
-
     end
 
    initial begin

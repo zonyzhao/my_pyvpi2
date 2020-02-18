@@ -95,8 +95,9 @@ void pyvpi_handle_Dealloc(p_pyvpi_handle self)
                 else {                
                     _tmp_h = PyLong_FromLong(cnt);
                     PyDict_SetItem(_HandleDict,key,_tmp_h); //TBD How about the reference of item before set?
-                    Py_XDECREF(_tmp_h);
+                    // Py_XDECREF(_tmp_h);
                 }
+                Py_XDECREF(_tmp_h);
             }
         }
         Py_XDECREF(key);

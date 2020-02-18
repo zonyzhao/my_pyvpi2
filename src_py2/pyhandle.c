@@ -125,7 +125,7 @@ PyObject * pyvpi_handle_New(PyTypeObject *type, PyObject *args, PyObject *kwds)
     pyvpi_verbose("pyvpi.Handle is allocate,ptr is "FADDR_MARCO", type ptr is "FADDR_MARCO".\n",self,type);
     return (PyObject *) self;
 }
-
+/*
 PyObject *_pyvpi_handle_New(vpiHandle handle){
     //New HandleDict if no allocate;
     s_pyvpi_handle * self;
@@ -161,3 +161,4 @@ PyObject *_pyvpi_handle_New(vpiHandle handle){
         return (PyObject *) self;
 }
 
+*/

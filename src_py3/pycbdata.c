@@ -88,13 +88,15 @@ pyvpi_cbdata_Dealloc(p_pyvpi_cbdata self)
     // zony
     // pyvpi_verbose("pyvpi.CbData is release,ptr is "FADDR_MARCO".\n",self);
     pyvpi_verbose("pyvpi.CbData is release,ptr is "FADDR_MARCO".\n",self);
-    // vpi_printf("cbdata ref count = %d\n", Py_REFCNT(self));
-    // vpi_printf("cbdata->obj_h ref count = %d\n", Py_REFCNT(self->obj_h));
-    // vpi_printf("cbdata->user_data ref count = %d\n", Py_REFCNT(self->user_data));
-    // vpi_printf("cbdata->dict ref count = %d\n", Py_REFCNT(self->dict));
-    // vpi_printf("cbdataself->cb_h ref count = %d\n", Py_REFCNT(self->cb_h));
-    // vpi_printf("cbdata->callback ref count = %d\n", Py_REFCNT(self->callback));
-    // vpi_printf("cbdata ref count = %d\n", Py_REFCNT(self));
+    if (0) {
+        vpi_printf("cbdata ref count = %d\n", Py_REFCNT(self));
+        vpi_printf("cbdata->obj_h ref count = %d\n", Py_REFCNT(self->obj_h));
+        vpi_printf("cbdata->user_data ref count = %d\n", Py_REFCNT(self->user_data));
+        vpi_printf("cbdata->dict ref count = %d\n", Py_REFCNT(self->dict));
+        vpi_printf("cbdataself->cb_h ref count = %d\n", Py_REFCNT(self->cb_h));
+        vpi_printf("cbdata->callback ref count = %d\n", Py_REFCNT(self->callback));
+        vpi_printf("cbdata ref count = %d\n", Py_REFCNT(self));
+    }
     Py_TYPE(self)->tp_free((PyObject*)self);
     // vpi_printf("pyvpi.CbData is release,ptr is "FADDR_MARCO".\n",self);
 }
@@ -201,6 +203,9 @@ pyvpi_cbdata_Init(p_pyvpi_cbdata self, PyObject *args, PyObject *kwds)
     // vpi_printf("pyvpi.CbData is allocate,ptr is "FADDR_MARCO".\n",self);
     // vpi_printf("cbdata created ref count = %d\n", Py_REFCNT(self));
     // return 0;
+    Py_XDECREF(DumbTuple);
+    Py_XDECREF(DumbDict);
+    
 }
 
 PyObject *
@@ -216,7 +221,7 @@ pyvpi_cbdata_New(PyTypeObject *type, PyObject *args, PyObject *kwds)
     Py_XINCREF(Py_None);
     self->user_data = Py_None;    //user_data
     self->dict = PyDict_New();
-    // Py_XINCREF(Py_None);
+    Py_XINCREF(Py_None);
     self->callback = Py_None;
     // zony
     if(!self){

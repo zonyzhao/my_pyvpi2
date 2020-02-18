@@ -55,7 +55,7 @@ vpi : $(SRC_C)
 	cp pyvpi.so libdpi.so
 #
 run_gui :
-	irun -gui -debug -64 -sv -v93  -loadvpi pyvpi.so  +access+rwc -nclibdirname sim_build -plinowarn  test.sv
+	LD_PRELOAD=/opt/anaconda/lib/libpython3.7m.so irun -gui -debug -sv -loadvpi pyvpi.so  +access+rwc -nclibdirname sim_build -plinowarn  test.sv
 
 run:
-	LD_PRELOAD=/opt/anaconda/lib/libpython3.7m.so irun -debug -64 -sv -v93  -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn  test.sv
+	LD_PRELOAD=/opt/anaconda/lib/libpython3.7m.so irun -debug -sv -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn  test.sv

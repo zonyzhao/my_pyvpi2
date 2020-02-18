@@ -140,7 +140,10 @@ pyvpi_HandleByName(PyObject *self, PyObject *args)
         PyErr_Format(VpiError,  "Can't get right handle by name :\"%s\"!", name);
         return NULL;
     }
+    //Py_XDECREF(scope);
+    //printf("SCOPE refere count: %d\n", Py_REFCNT(scope));
     oans = (p_pyvpi_handle) _pyvpi_handle_New(ans);
+    Py_XINCREF(oans);
     return (PyObject *)oans;
 }
 /* 
@@ -206,6 +209,7 @@ pyvpi_Handle(PyObject *self, PyObject *args)
         return NULL;
     }
     oans = (p_pyvpi_handle) _pyvpi_handle_New(ans);
+    Py_XINCREF(oans);
     return (PyObject *)oans;   
 }
 /*
@@ -249,6 +253,7 @@ pyvpi_Iterate(PyObject *self, PyObject *args)
     }
 
     oans = (p_pyvpi_handle) _pyvpi_handle_New(ans);
+    Py_XINCREF(oans);
     return (PyObject *)oans;   
 }
 
@@ -386,6 +391,7 @@ pyvpi_RegisterCb(PyObject *self, PyObject *args)
         return NULL;
     oans = (p_pyvpi_handle) _pyvpi_handle_New(ans);
     Py_XDECREF(cbdata->cb_h);
+    Py_XINCREF(oans);
     cbdata->cb_h =  (PyObject *)oans;
     Py_XINCREF(oans);
     return (PyObject *)oans;   
@@ -414,6 +420,7 @@ pyvpi_RemoveCb(PyObject *self, PyObject *args)
     if(pyvpi_CheckError())
         return NULL;
     cbhandle->is_free = 1;
+    Py_XDECREF(cbdata->cb_h);
     pyvpi_verbose("pyvpi.Handle->Handle is "
                     "release,ptr is "FADDR_MARCO".\n", cbhandle->_vpi_handle);
     Py_XDECREF(cbdata);    /* Remove cbdata reference! */      
@@ -526,18 +533,22 @@ pyvpi_PutValue(PyObject *self, PyObject *args)
                     "trade it as NULL");
         time = NULL;
     }
-    //printf("******** Flag is %d\n", flags);
+    // printf("******** handle is %d\n", handle->_vpi_handle);
     ans = vpi_put_value(handle->_vpi_handle,
         value == NULL? NULL : &value->_vpi_value,
         time  == NULL? NULL : &time->_vpi_time,
         flags);
+    // printf("try put value \n");
     if(pyvpi_CheckError())
+    {
         return NULL;
+    }
     if(ans == NULL) {
         Py_XINCREF(Py_None);
         return Py_None;
     }
     oans = (p_pyvpi_handle) _pyvpi_handle_New(ans);
+    Py_XINCREF(oans);
     return (PyObject *)oans; 
 }
 
@@ -927,7 +938,7 @@ PYVPI_LOG_FUNC(fatal,FATAL)
     if (PyType_Ready(&vpi_type) < 0) \
     {\
     pyvpi_error(#vpi_type" is not Ready.\n"); \
-        return;\
+        return NULL;\
     }\
     pyvpi_verbose(#vpi_type" is "FADDR_MARCO".\n",&vpi_type);\
     Py_XINCREF(&vpi_type);\

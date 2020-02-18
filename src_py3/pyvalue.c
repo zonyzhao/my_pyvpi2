@@ -86,7 +86,7 @@ int  pyvpi_value_Init(s_pyvpi_value *self, PyObject *args, PyObject *kwds)
         printf("Error found in pyvalue\n");
         return -1;
     }
-    Py_XDECREF(self->obj);       //For inital, we need no object...
+    //Py_XDECREF(self->obj);       //For inital, we need no object...
     pyvpi_verbose("pyvpi.Value is Initial, "
                                       "format is "FADDR_MARCO".\n",self->_vpi_value.format);
     return update_format(self,self->_vpi_value.format,NULL);
@@ -118,6 +118,7 @@ PyObject * s_pyvpi_value_getvalue(s_pyvpi_value *self, void *closure)
            self->_vpi_value.format == vpiHexStrVal ||
            self->_vpi_value.format == vpiStringVal) {
             self->obj = PyUnicode_FromString(self->_vpi_value.value.str);
+            return self->obj;
         }
         /*
         else if(self->_vpi_value.format == vpiScalarVal) {
@@ -302,6 +303,8 @@ void pyvip_value_update_value(s_pyvpi_value *self, s_vpi_value *ovalp, PLI_INT32
         break;
     }
     Py_XDECREF(tmpobj);
+    Py_XDECREF(DumbDict);
+    Py_XDECREF(DumbTuple);
     return ;
 }
 
