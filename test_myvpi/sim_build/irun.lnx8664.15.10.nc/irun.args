@@ -1,0 +1,15 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-debug
+-sv
+-loadvpi
+pyvpi.so
++access+rwc
+-nclibdirname
+sim_build
+test.sv
+-plidebug
+-plierr_verbose
+-pliverbose

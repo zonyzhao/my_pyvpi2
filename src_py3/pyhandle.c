@@ -58,50 +58,49 @@ PyTypeObject pyvpi_handle_Type = {
     0,                         /* tp_dictoffset */
     (initproc) pyvpi_handle_Init, /* tp_init */
     0,                         /* tp_alloc */
-    pyvpi_handle_New,           /* tp_new */
+    0, //pyvpi_handle_New,           /* tp_new */
 };
 
 
 void pyvpi_handle_Dealloc(p_pyvpi_handle self)
 {
-    PyObject * _tmp_h;
-    PyObject * key;
-    int        cnt;
-    //Free self.
-    pyvpi_verbose("pyvpi.Handle is release,ptr is "FADDR_MARCO".\n",self);
-    //Check this handle is exist or not;
-    if(self->_vpi_handle != NULL){
-#ifdef __LP64__
-        key = Py_BuildValue("k",self->_vpi_handle);
-#else
-        key = Py_BuildValue("I",self->_vpi_handle);
-#endif
-        if(self->is_free) {
-            //The handle has already release, we must remove key from dict.
-            if(PyDict_Contains(_HandleDict, key)) {
-                PyDict_DelItem(_HandleDict, key);
-            }
-        }
-        else {
-            _tmp_h = PyDict_GetItem(_HandleDict,key);        
-            if(_tmp_h != NULL){
-                cnt = PyLong_AsLong(_tmp_h) - 1;            
-                if(cnt == 0) { 
-                    PyDict_DelItem(_HandleDict,key);
-                    pyvpi_verbose("pyvpi.Handle->_vpi_handle is release,ptr is "FADDR_MARCO".\n",
-                    self->_vpi_handle);
-                    vpi_free_object(self->_vpi_handle);
-                }
-                else {                
-                    _tmp_h = PyLong_FromLong(cnt);
-                    PyDict_SetItem(_HandleDict,key,_tmp_h); //TBD How about the reference of item before set?
-                    // Py_XDECREF(_tmp_h);
-                }
-                Py_XDECREF(_tmp_h);
-            }
-        }
-        Py_XDECREF(key);
-    }
+//     PyObject * _tmp_h;
+//     PyObject * key;
+//     int        cnt;
+//     //Free self.
+//     pyvpi_verbose("pyvpi.Handle is release,ptr is "FADDR_MARCO".\n",self);
+//     //Check this handle is exist or not;
+//     if(self->_vpi_handle != NULL){
+// #ifdef __LP64__
+//         key = Py_BuildValue("k",self->_vpi_handle);
+// #else
+//         key = Py_BuildValue("I",self->_vpi_handle);
+// #endif
+//         if(self->is_free) {
+//             //The handle has already release, we must remove key from dict.
+//             if(PyDict_Contains(_HandleDict, key)) {
+//                 PyDict_DelItem(_HandleDict, key);
+//             }
+//         }
+//         else {
+//             _tmp_h = PyDict_GetItem(_HandleDict,key);        
+//             if(_tmp_h != NULL){
+//                 cnt = PyLong_AsLong(_tmp_h) - 1;            
+//                 if(cnt == 0) { 
+//                     PyDict_DelItem(_HandleDict,key);
+//                     pyvpi_verbose("pyvpi.Handle->_vpi_handle is release,ptr is "FADDR_MARCO".\n",
+//                     self->_vpi_handle);
+//                     vpi_free_object(self->_vpi_handle);
+//                 }
+//                 else {                
+//                     _tmp_h = PyLong_FromLong(cnt);
+//                     PyDict_SetItem(_HandleDict,key,_tmp_h); //TBD How about the reference of item before set?
+//                     Py_DECREF(_tmp_h);
+//                 }
+//             }
+//         }
+//         Py_DECREF(key);
+//     }
     Py_TYPE(self)->tp_free((PyObject*)self);
 }
 
@@ -129,35 +128,45 @@ PyObject * pyvpi_handle_New(PyTypeObject *type, PyObject *args, PyObject *kwds)
 PyObject *_pyvpi_handle_New(vpiHandle handle){
     //New HandleDict if no allocate;
     s_pyvpi_handle * self;
-    PyObject * _tmp_h;
-    PyObject * key;
-    int         cnt = 1;
-    if(handle == NULL) 
-        return NULL;
-    if(_HandleDict == NULL) {
-        _HandleDict = PyDict_New() ;
-    }
+//     PyObject * _tmp_h;
+//     PyObject * key;
+//     int         cnt = 1;
+//     if(handle == NULL) 
+//         return NULL;
+//     pyvpi_verbose("pvpiHandle is 0x%x\n", handle);
+//     if(_HandleDict == NULL) {
+//         pyvpi_verbose("pyvpi._HandleDict is allocate");
+//         _HandleDict = PyDict_New() ;
+//     }
         self = (p_pyvpi_handle) pyvpi_handle_Type.tp_alloc(&pyvpi_handle_Type, 0);
         self->_vpi_handle = handle;
-        self->is_free       = 0;
-        pyvpi_verbose("pyvpi.Handle is allocate,ptr is "FADDR_MARCO", type ptr is "FADDR_MARCO".\n",self,&pyvpi_handle_Type);
-#ifdef __LP64__        
-        key = Py_BuildValue("k",handle);
-#else
-        key = Py_BuildValue("I",handle);
-#endif
-        _tmp_h = PyDict_GetItem(_HandleDict,key);
+//         self->is_free       = 0;
+//         pyvpi_verbose("pyvpi.Handle is allocate,ptr is "FADDR_MARCO", type ptr is "FADDR_MARCO".\n",self,&pyvpi_handle_Type);
+// #ifdef __LP64__        
+//         key = Py_BuildValue("k",handle);
+// #else
+//         key = Py_BuildValue("I",handle);
+// #endif
+//         _tmp_h = PyDict_GetItem(_HandleDict,key);
 
-        if(_tmp_h != NULL) {
-            cnt = PyLong_AsLong(_tmp_h) + 1;
-        }
-        else {
-            pyvpi_verbose("pyvpi.Handle._vpi_handle is allocate,ptr is "FADDR_MARCO".\n",handle);
-        }
-        _tmp_h = PyLong_FromLong(cnt);
-        PyDict_SetItem(_HandleDict,key,_tmp_h);   //TBD when the key value is same, how to dealwith refer        
-        Py_XDECREF(_tmp_h);
-        Py_XDECREF(key);
+//         if(_tmp_h != NULL) {
+//             cnt = PyLong_AsLong(_tmp_h) + 1;
+//             pyvpi_verbose("handle : for tmp_h ref: %d\n", Py_REFCNT(_tmp_h));
+//             // Py_DECREF(_tmp_h);
+//         }
+//         else {
+//             pyvpi_verbose("pyvpi.Handle._vpi_handle is allocate,ptr is "FADDR_MARCO".\n",handle);
+//         }
+//         //pyvpi_verbose("handle : for tmp_h ref: %d\n", Py_REFCNT(_tmp_h));
+//         _tmp_h = PyLong_FromLong(cnt);
+//         PyDict_SetItem(_HandleDict,key,_tmp_h);   //TBD when the key value is same, how to dealwith refer     
+//         pyvpi_verbose("handle : cnt      : %d\n", cnt);
+//         pyvpi_verbose("handle : tmp_h ref: %d\n", Py_REFCNT(_tmp_h));
+//         pyvpi_verbose("handle : key ref: %d\n", Py_REFCNT(key));   
+//         Py_DECREF(_tmp_h);
+//         Py_DECREF(key);
+
+
         return (PyObject *) self;
 }
 

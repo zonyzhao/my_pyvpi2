@@ -146,16 +146,19 @@ int        s_pyvpi_value_setvalue(s_pyvpi_value *self, PyObject *value, void *cl
         PyErr_SetString(VpiError, "Can't set index to NULL.");
         return -1;
     }
-    Py_XINCREF(self->obj);
+    // Py_XINCREF(self->obj);
     tmp = self->obj;
     Py_XINCREF(value);
-    Py_XDECREF(self->obj);
+    // Py_XDECREF(self->obj);
     if(update_format(self,self->_vpi_value.format,value) == -1){
         Py_XDECREF(value);
         self->obj = tmp;
         return -1;
     }
-    Py_XDECREF(tmp);
+    // Py_XDECREF(tmp);
+    pyvpi_verbose("setvalue: tmp refcount : %d\n", Py_REFCNT(tmp));
+    pyvpi_verbose("setvalue: self->obj refcount : %d\n", Py_REFCNT(self->obj));
+    pyvpi_verbose("setvalue: value refcount : %d\n", Py_REFCNT(self->obj));
     return 0;
 }
 
@@ -173,8 +176,8 @@ void pyvip_value_update_value(s_pyvpi_value *self, s_vpi_value *ovalp, PLI_INT32
     PyObject*   tmpobj;
     PyObject*   dictobj;
 
-    DumbTuple = PyTuple_New(0);
-    DumbDict = PyDict_New();
+    // DumbTuple = PyTuple_New(0);
+    // DumbDict = PyDict_New();
 
     Py_XINCREF(self->obj);
     tmpobj = self->obj;
@@ -303,8 +306,8 @@ void pyvip_value_update_value(s_pyvpi_value *self, s_vpi_value *ovalp, PLI_INT32
         break;
     }
     Py_XDECREF(tmpobj);
-    Py_XDECREF(DumbDict);
-    Py_XDECREF(DumbTuple);
+    // Py_XDECREF(DumbDict);
+    // Py_XDECREF(DumbTuple);
     return ;
 }
 

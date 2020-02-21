@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "typeinfo": "c",
+        "pyvpi.h": "c",
+        "pyconfig.h": "c",
+        "python.h": "c"
+    }
+}

@@ -1,0 +1,27 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
++access+rwc
+-PLIDEBUG
+-PLIERR_VERBOSE
+-PLIVERBOSE
+-MESSAGES
++EMGRLOG
+irun.log
+-XLSTIME
+1582290561
+-XLKEEP
+-XLMODE
+./sim_build/irun.lnx8664.15.10.nc
+-RUNMODE
+-CDSLIB
+./sim_build/irun.lnx8664.15.10.nc/cds.lib
+-HDLVAR
+./sim_build/irun.lnx8664.15.10.nc/hdl.var
+-XLNAME
+irun
+-XLVERSION
+"TOOL:	irun(64)	15.10-s010"
+-XLNAME
+./sim_build/irun.lnx8664.15.10.nc/zonyzhao-GJ5CN64_22180

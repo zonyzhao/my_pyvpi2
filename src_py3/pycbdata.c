@@ -116,8 +116,8 @@ pyvpi_cbdata_Init(p_pyvpi_cbdata self, PyObject *args, PyObject *kwds)
     p_pyvpi_handle obj_h =NULL;
     PyObject* callback = NULL;
 
-    DumbTuple = PyTuple_New(0);
-    DumbDict = PyDict_New();
+    // DumbTuple = PyTuple_New(0);
+    // DumbDict = PyDict_New();
     if (! PyArg_ParseTupleAndKeywords(args, kwds, "|iOOOO", kwlist,
                                       &self->_vpi_cbdata.reason,
                                       &obj_h,
@@ -202,9 +202,9 @@ pyvpi_cbdata_Init(p_pyvpi_cbdata self, PyObject *args, PyObject *kwds)
     pyvpi_verbose("pyvpi.CbData is Initial.\n");
     // vpi_printf("pyvpi.CbData is allocate,ptr is "FADDR_MARCO".\n",self);
     // vpi_printf("cbdata created ref count = %d\n", Py_REFCNT(self));
-    // return 0;
-    Py_XDECREF(DumbTuple);
-    Py_XDECREF(DumbDict);
+    return 0;
+    // Py_XDECREF(DumbTuple);
+    // Py_XDECREF(DumbDict);
     
 }
 

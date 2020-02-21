@@ -1,0 +1,20 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-XLMODE
+./sim_build/irun.lnx8664.15.10.nc
+-RUNMODE
+-sv
+-NCLIBDIRNAME
+sim_build
+test.sv
+-CDSLIB
+./sim_build/irun.lnx8664.15.10.nc/cdsrun.lib
+-HDLVAR
+./sim_build/irun.lnx8664.15.10.nc/hdlrun.var
+-MESSAGES
+-UPDATE
+-XLLIBSTORE
+./sim_build/irun.lnx8664.15.10.nc/xllibs
+-ALLOWUNBOUND

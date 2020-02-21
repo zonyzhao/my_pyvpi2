@@ -143,7 +143,7 @@ pyvpi_HandleByName(PyObject *self, PyObject *args)
     //Py_XDECREF(scope);
     //printf("SCOPE refere count: %d\n", Py_REFCNT(scope));
     oans = (p_pyvpi_handle) _pyvpi_handle_New(ans);
-    Py_XINCREF(oans);
+    // Py_XINCREF(oans);
     return (PyObject *)oans;
 }
 /* 
@@ -209,7 +209,7 @@ pyvpi_Handle(PyObject *self, PyObject *args)
         return NULL;
     }
     oans = (p_pyvpi_handle) _pyvpi_handle_New(ans);
-    Py_XINCREF(oans);
+    // Py_XINCREF(oans);
     return (PyObject *)oans;   
 }
 /*
@@ -989,10 +989,10 @@ PyMODINIT_FUNC PyInit_pyvpi(void)
     
     DumbTuple   =   PyTuple_New(0);
     DumbDict    =   PyDict_New();
-    int rt;
-    rt = PyModule_AddObject(m,"DumbTuple",DumbTuple);
-    printf("init module, rt = %d\n",rt);
-    PyModule_AddObject(m,"DumbDict",DumbDict);
+    // int rt;
+    // rt = PyModule_AddObject(m,"DumbTuple",DumbTuple);
+    // printf("init module, rt = %d\n",rt);
+    // PyModule_AddObject(m,"DumbDict",DumbDict);
     return m;
 }
 

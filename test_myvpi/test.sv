@@ -26,7 +26,7 @@ module top;
 	clk = 0;
     #100;
 	forever begin
-	   #(2ns) clk = ~clk;
+	   #(1us) clk = ~clk;
 	end	   
    end
 

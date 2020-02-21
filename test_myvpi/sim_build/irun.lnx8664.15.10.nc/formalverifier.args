@@ -1,0 +1,9 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-LOADVPI
+pyvpi.so
+-PLIDEBUG
+-PLIVERBOSE
+-MESSAGES

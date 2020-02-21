@@ -58,4 +58,4 @@ run_gui :
 	LD_PRELOAD=/opt/anaconda/lib/libpython3.7m.so irun -gui -debug -sv -loadvpi pyvpi.so  +access+rwc -nclibdirname sim_build -plinowarn  test.sv
 
 run:
-	LD_PRELOAD=/opt/anaconda/lib/libpython3.7m.so irun -debug -sv -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build -plinowarn  test.sv
+	LD_PRELOAD=/opt/anaconda/lib/libpython3.7m.so irun -debug -sv -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build  test.sv -plidebug -plierr_verbose -pliverbose

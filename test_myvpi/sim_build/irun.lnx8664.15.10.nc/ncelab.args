@@ -1,0 +1,23 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
++access+rwc
+-ACCESS
++rw
+-LOADVPI
+pyvpi.so
+-ACCESS
++rwc
+-PLIVERBOSE
+-MESSAGES
+-XLMODE
+./sim_build/irun.lnx8664.15.10.nc
+-RUNMODE
+-CDSLIB
+./sim_build/irun.lnx8664.15.10.nc/cds.lib
+-HDLVAR
+./sim_build/irun.lnx8664.15.10.nc/hdl.var
+-WORK
+worklib
+-HASXLMODE
