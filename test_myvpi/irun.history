@@ -1,1 +1,0 @@
-s1(21Feb2020:14:09:21):  irun -debug -sv -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build test.sv -plidebug -plierr_verbose -pliverbose 

@@ -4,24 +4,20 @@ DES_TARGET := pyvpi
 
 #export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(PWD):/home1/sean.chen/.local/lib
 
-#IUS_HOME   	  = /tools/cadence/INCISIV1320s033/tools/inca/
-PYTHON_HOME	  = /opt/anaconda
-IUS_HOME          = /opt/cadence/INCISIVE151/tools
-INC_PATH 	  = -I$(IUS_HOME)/include
-INC_PATH     += -I$(PYTHON_HOME)/include/python3.7m
-#INC_PATH     += -I$(PYTHON_HOME)/include/python3.6m
-#INC_PATH     += -I$(PYTHON_HOME)/include/python2.7
-LIB_PATH      = -L$(PYTHON_HOME)/lib
-#python 2.7
-#LIB_REF       = -lpython2.7 -lm -ldl -lutil
-#python 3.6
-#LIB_REF       = -lpython3.6m -lm -ldl -lutil
-#python 3.7
-LIB_REF       = -lm -ldl -lutil -lpython3.7m 
-CFLAGS        = -c -g $(INC_PATH) -fPIC
+PYTHON_HOME	  =${ANACONDAHOME}
+XRUN	      =xrun
+IUS_HOME      =$(strip $(shell cds_root ${XRUN}))/tools
+INC_PATH 	  =-I${IUS_HOME}/include
+PYVERSION     =$(shell python -c 'import sys;x=sys.version_info;print("{}.{}".format(*x))')
+INC_PATH     +=-I${PYTHON_HOME}/include/python${PYVERSION}m
+LIB_PATH      =-L$(PYTHON_HOME)/lib
+LIB_REF       =-lm -ldl -lutil -lpython${PYVERSION}m 
+CFLAGS        =-c -g $(INC_PATH) -fPIC
 
-#CC			  = $(IUS_HOME)/cdsgcc/gcc/4.8/bin/gcc
-CC			  = gcc
+PRELOAD  = ${PYTHON_HOME}/lib/libpython$(PYVERSION)m.so
+
+#CC			  = ${IUS_HOME}/cdsgcc/gcc/6.3/bin/gcc
+CC			  =gcc
 SRC_C         = ../src_py3/pyvpi.c \
                 ../src_py3/pyvalue.c \
                 ../src_py3/pytime.c \
@@ -44,6 +40,9 @@ SRC_O         = pyvpi.o \
 
 all : clean vpi run
 
+test:
+	@echo ${INC_PATH}
+
 clean :
 	rm -rf wlft* work *.wlf *.so *.o *.log sim_build *.err *.history *.key
 
@@ -55,7 +54,7 @@ vpi : $(SRC_C)
 	cp pyvpi.so libdpi.so
 #
 run_gui :
-	LD_PRELOAD=/opt/anaconda/lib/libpython3.7m.so irun -gui -debug -sv -loadvpi pyvpi.so  +access+rwc -nclibdirname sim_build -plinowarn  test.sv
+	LD_PRELOAD=$(PRELOAD) $(XRUN) -gui -debug -sv -loadvpi pyvpi.so  +access+rwc -nclibdirname sim_build -plinowarn  test.sv
 
 run:
-	LD_PRELOAD=/opt/anaconda/lib/libpython3.7m.so irun -debug -sv -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build  test.sv -plidebug -plierr_verbose -pliverbose
+	LD_PRELOAD=$(PRELOAD) $(XRUN) -debug -sv -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build  test.sv -plidebug -plierr_verbose -pliverbose
