@@ -13,7 +13,7 @@ INC_PATH     +=-I${PYTHON_HOME}/include/python${PYVERSION}m
 LIB_PATH      =-L$(PYTHON_HOME)/lib
 LIB_REF       =-lm -ldl -lutil -lpython${PYVERSION}m 
 CFLAGS        =-c -g $(INC_PATH) -fPIC
-
+PYVPI_TB	  =test_task.py
 PRELOAD  = ${PYTHON_HOME}/lib/libpython$(PYVERSION)m.so
 
 #CC			  = ${IUS_HOME}/cdsgcc/gcc/6.3/bin/gcc
@@ -54,7 +54,7 @@ vpi : $(SRC_C)
 	cp pyvpi.so libdpi.so
 #
 run_gui :
-	LD_PRELOAD=$(PRELOAD) $(XRUN) -gui -debug -sv -loadvpi pyvpi.so  +access+rwc -nclibdirname sim_build -plinowarn  test.sv
+	PYVPI_TB=$(PYVPI_TB) LD_PRELOAD=$(PRELOAD) $(XRUN) -gui -debug -sv -loadvpi pyvpi.so  +access+rwc -nclibdirname sim_build -plinowarn  test.sv
 
 run:
-	LD_PRELOAD=$(PRELOAD) $(XRUN) -debug -sv -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build  test.sv -plidebug -plierr_verbose -pliverbose
+	PYVPI_TB=$(PYVPI_TB) LD_PRELOAD=$(PRELOAD) $(XRUN) -debug -sv -loadvpi pyvpi.so +access+rwc -nclibdirname sim_build  test.sv -plidebug -plierr_verbose -pliverbose
