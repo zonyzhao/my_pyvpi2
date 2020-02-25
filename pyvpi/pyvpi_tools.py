@@ -17,6 +17,27 @@ INT_VAL = [cons.vpiIntVal, cons.vpiReg, cons.vpiIntNet, cons.vpiIntVar, cons.vpi
 REAL_VAL = [cons.vpiRealVal, cons.vpiRealVar, cons.vpiRealNet]
 STR_VAL = [cons.vpiStringVal, cons.vpiStringVar]
 
+time_unit = {'s':0, 'ms':-3, 'us':-6, 'ns':-9, 'ps':-12, 'fs':-15}
+
+def _get_unit():
+    return pyvpi.getTimeScale(cons.vpiTimePrecision)-2**32
+
+def get_simtime_unit():
+    unit_dict = {0:'s', -3:'ms', -6:'us', -9:'ns', -12:'ps', -15:'fs'}
+    return unit_dict[_get_unit()]
+
+def setAbsTime(cbdata, time, unit=None):
+    unit_sim = _get_unit()
+    unit_target = 0
+    if unit == None:
+        unit_target = unit_sim
+    else:
+        if unit in ['s', 'ms', 'us', 'ns', 'ps', 'fs']:
+            unit_target = time_unit[unit]
+    dxt = time*10**(unit_target-unit_sim)
+    cbdata.time.low = int(dxt%(2**32))
+    cbdata.time.high = int(dxt//(2**32))
+
 class Reg(object):
     '''
     access to registers in verilog.
@@ -417,10 +438,6 @@ class SysTask(pyvpi.SysTfData):
         self.calltf = func
         self.register()
 
-# @SysTask(tfname="$ipython")
-# def itr(self):
-#     embed()
-
 
 ###
 def start_info(s):
@@ -437,3 +454,9 @@ def end_info():
 def runfile(fn):
     with open(fn) as f:
         exec("".join(f.readlines()))
+
+
+@SysTask(tfname="$ipython")
+def itr(self):
+    print('Enter ipython for debug')
+    IPython.embed()
