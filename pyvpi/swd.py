@@ -322,8 +322,8 @@ class SWD():
         self.log('ReadMem')
         await self.APWriteCSW(0x2000002)
         await self.APWriteTAR(addr)
-        ack = await self.APReadDRW()
-        await self.DPReadRDBUFF()
+        await self.APReadDRW()
+        ack = await self.DPReadRDBUFF()
         self.readout = ack
         return ack
 

@@ -7,7 +7,7 @@ import sys
 import os
 import time
 import threading
-from threading import Thread, current_thread
+from threading import Thread, current_thread, Event
 from pyvpi_tools import Simtime
 import asyncio
 import IPython
@@ -57,7 +57,13 @@ print(sys.modules['__main__'].__dict__)
 
 sys.modules['__main__'].__dict__['schedule_loop']=schedule_loop
 sys.modules['__main__'].__dict__['loop_thread']=loop_thread
-        
+
+pyinteractive_lock = threading.Event()
+sys.modules['__main__'].__dict__['pyinteractive_lock']=pyinteractive_lock
+
+pyinteractive_mode = 0
+sys.modules['__main__'].__dict__['pyinteractive_mode']=pyinteractive_mode
+
 # public(schedule_loop)
 # public(_thread)
 
@@ -241,6 +247,41 @@ class NegEdge(Edge):
         return cbdata
 
 
+@public
+def _pyinteractive_cb(self):
+    pyinteractive_lock = sys.modules['__main__'].__dict__['pyinteractive_lock']
+    pyinteractive_lock.clear()
+    if sys.modules['__main__'].__dict__['pyinteractive_mode']:
+        pyvpi.printf("Enter Pyinteractive @ %d\n"%Simtime.value)
+        pyinteractive_lock.wait()
+    else:
+        pyinteractive_lock.clear()
+    time.sleep(0.1)
+    pyvpi.removeCb(self)
+
+@public
+def run_sim(t,unit=None):
+    cbdata = pyvpi.CbData()
+    cbdata.reason = cons.cbAfterDelay
+    cbdata.callback = _pyinteractive_cb
+    setAbsTime(cbdata, t, unit)
+    pyvpi.registerCb(cbdata)
+    pyvpi.printf("Register runtime = %d\n"%cbdata.time.time)
+    time.sleep(0.1)
+    pyinteractive_lock = sys.modules['__main__'].__dict__['pyinteractive_lock']
+    pyinteractive_lock.set()
+    time.sleep(0.1)
+        
+
+@public
+def enter_pyinteractive_mode():
+    sys.modules['__main__'].__dict__['pyinteractive_mode'] = 1
+    run_sim(1)
+
+@public
+def exit_pyinteractive_mode():
+    sys.modules['__main__'].__dict__['pyinteractive_mode'] = 0
+    run_sim(1)
 
 
 

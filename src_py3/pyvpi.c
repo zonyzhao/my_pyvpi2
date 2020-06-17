@@ -631,7 +631,7 @@ static PyObject*
 pyvpi_Control(PyObject *self, PyObject *args)
 {
     PLI_INT32 op;
-    if (!PyArg_ParseTuple(args, "k", &op))
+    if (!PyArg_ParseTuple(args, "i", &op))
     {
         PyErr_SetString(VpiError,  "Error args, must be (int).");
         return NULL;
